@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Done",
+      "setup": "javac Done.java",
+      "run": "java Done",
+      "input": "",
+      "output": "DONE",
+      "comparison": "exact",
+      "timeout": 10,
+      "points": null
+    }
+  ]
+}
