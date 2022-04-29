@@ -19,6 +19,7 @@ public class HelloSwing extends JFrame implements ActionListener
 		frame.setPreferredSize(new Dimension(400,200));
 		frame.pack();
 		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
     // constructor
