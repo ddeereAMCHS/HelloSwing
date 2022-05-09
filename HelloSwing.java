@@ -8,10 +8,14 @@ public class HelloSwing extends JFrame implements ActionListener
 	private JPanel panel;
 	private JButton button;
 	private JLabel label;
+	private JButton button2;
+	private JLabel label2;
+	private JButton button3;
 
 	//declare and initialize other data members
-	private String labelMessage = "Number of button clicks: ";
+	private String labelMessage = "Counter: ";
 	private int numClicks = 0;
+	private String labelMessage2 = "";
 
 	public static void main(String[] args)
 	{
@@ -19,7 +23,6 @@ public class HelloSwing extends JFrame implements ActionListener
 		frame.setPreferredSize(new Dimension(400,200));
 		frame.pack();
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
     // constructor
@@ -28,8 +31,11 @@ public class HelloSwing extends JFrame implements ActionListener
 		super("Hello Swing");
 		
 		//create components
-		button = new JButton("Click Me");
+		button = new JButton("Increment");
 		label = new JLabel (labelMessage + "0");
+		button2 = new JButton("Decrement");
+		label2 = new JLabel ("ON");
+		button3 = new JButton("Toggle");
 
 		//Font(font name, 0-normal/1-bold/2-italics/3-bold and italics, font size)
 		button.setFont(new Font("Times New Roman", 2, 24));
@@ -41,11 +47,16 @@ public class HelloSwing extends JFrame implements ActionListener
 		//add components to JPanel
 		panel.add(button);
 		panel.add(label);
+		panel.add(button2);
+		panel.add(label2);
+		panel.add(button3);
 
 		//set JPanel to be the content pane
 		setContentPane(panel);
 
 		button.addActionListener(this);
+		button2.addActionListener(this);
+		button3.addActionListener(this);
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -54,6 +65,22 @@ public class HelloSwing extends JFrame implements ActionListener
 		{
 			numClicks++;
 			label.setText(labelMessage + numClicks);
+		}
+		if(e.getSource() == button2)
+		{
+			numClicks--;
+			label.setText(labelMessage + numClicks);
+		}
+		if(e.getSource() == button3)
+		{
+			if(label2.getText().equals("ON"))
+			{
+				label2.setText(labelMessage2 + "OFF");
+			}
+			else
+			{
+				label2.setText(labelMessage2 + "ON");
+			}
 		}
 	}
 }
